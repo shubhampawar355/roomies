@@ -28,7 +28,7 @@ registerUser(form){
 
   requestRoom(room,uid){
  //   var str= this.baseUrl+"requestroom/"+2;
-    console.log(uid);
+    console.log(uid, room);
     return this.http.post(this.baseUrl+"requestroom/"+uid,room);
 
   }

@@ -41,15 +41,18 @@ myid:number;
     console.log(this.emp);
     this.service.updateEmployee(this.emp).subscribe((res) => {
       console.log(res);
+      this.router.navigate(['/adminhome']);
     }, (error) => {
       console.log(error);
+      this.router.navigate(['/adminhome']);
     })
-    this.router.navigate(['/adminhome']);
+   
 
   }
 
   CancelUpdate() {
     console.log("in CancelUpdate()");
+
     this.router.navigate(['/adminhome']);
   }
 }

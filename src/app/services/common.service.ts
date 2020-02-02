@@ -15,7 +15,7 @@ export class CommonService {
 
  constructor(private http:HttpClient,private router: Router) { 
 
-   this.url = environment.url+'validate/';
+   this.url = environment.url+'login/validate';
    
  }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {

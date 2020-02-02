@@ -4,13 +4,14 @@
     <div class="col-2 text-light make-left beautify">
         R00M!s
     </div>
-    <div class="col-2 text-light make-left beautify"></div>
-
     <div class="col-2 text-light make-center beautify">
         <a style="color: aqua;" routerLink="/userhome">Home</a>
     </div>
     <div class="col-2 text-light make-center beautify">
         <a style="color: aqua;" routerLink="/postroom">Post Room</a>
+    </div>
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/myrequests">My Requests</a>
     </div>
     <div class="col-2 text-light make-center beautify">
         <a style="color: aqua;" routerLink="/myrooms">My Rooms </a>
@@ -26,13 +27,13 @@
 <!--OUTER CONTAINER-->
 <div class="row container no-gutters div-sticky" style="position: sticky;">
 
-    <div class="message" *ngIf="rooms==null">
-       <h3> You dont requested for any room yet</h3>
-    </div>
+    <span [hidden] = 'this.m'>
+       <h3> You haven't requested for any room yet</h3>
+    </span>
     <!--LEFT SIDE MAIN PAGE CONTENT-->
     <div class="col-md-12 row-md-5" style="position: relative;">
 
-        <ng-container *ngFor="let item of rooms; let itemIndex = index;">
+        <ng-container *ngFor="let item of rooms; index as i;">
             <!--FIRST IMAGE-->
             <div class="row">
                 <div class="container-fluid make-center">
@@ -43,7 +44,7 @@
                                 <div class="col-md-4 rounded "
                                     style="background-color: darkolivegreen;text-align: center; color: aqua;">
                                     Validators Review: {{item.validateStatus}}</div>
-                                <div class="col-md-4">Room Id{{item.roomId}}</div>
+                                <div class="col-md-4">Room Id: &nbsp;{{item.roomId}}</div>
                                 <div class="col-md-4 span12 rounded"
                                     style="background-color: crimson ;color: wheat;text-align: center;">
                                     Rent:{{item.rent}}</div>

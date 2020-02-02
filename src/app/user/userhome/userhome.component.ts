@@ -105,9 +105,11 @@ console.log(this.rooms);
      this.router.onSameUrlNavigation='reload';
   }
 
-  requestRoom(rid){
+  requestRoom(room){
+
+    
     this.requested=false;
-    this.service.requestRoom(rid,this.userid).subscribe((res)=>{
+    this.service.requestRoom(room,this.userid).subscribe((res)=>{
       console.log(res);
        this.rooms=res;
 

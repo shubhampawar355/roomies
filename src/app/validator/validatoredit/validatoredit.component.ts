@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ValidatorService } from '../../services/validator.service';
 import { UserService } from '../../services/user.service';
 import { ValidateStatus } from '../../models/allenum.model';
+import { Room } from '../../models/room.model';
+import User from '../../models/user.model';
 
 @Component({
   selector: 'app-validatoredit',
@@ -12,8 +14,8 @@ import { ValidateStatus } from '../../models/allenum.model';
 })
 export class ValidatoreditComponent implements OnInit {
 
-  owner:any;
-  room:any;
+  owner:User;
+  room:Room;
   add:any;
   roomid:number;
   
@@ -35,15 +37,10 @@ export class ValidatoreditComponent implements OnInit {
        console.log(this.roomid);
     })
     
-    this.userservice.getUser(this.roomid).subscribe((res)=>{
-      this.owner=res;
-      console.log(res);
-    },(err)=>{
-      console.log(err);
-    })
+
     debugger;
 
-    this.service.getRoom(this.roomid).subscribe((res) => {
+    this.service.getRoom(this.roomid).subscribe((res:any) => {
       console.log("in getroom()");
       console.log(res);
       this.room=res;
@@ -51,6 +48,7 @@ export class ValidatoreditComponent implements OnInit {
     }, (error) => {
       console.log(error)
     })
+   
   }
 
   postRoom(){
