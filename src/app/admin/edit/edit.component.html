@@ -1,0 +1,104 @@
+<!--NAV BAR-->
+<div style="background-color: darkmagenta;" class="rounded">
+    <div class="col-12 text-light make-center beautify">
+        <h4>Employee Edit Form</h4>
+    </div>
+</div>
+<form #myForm="ngForm" (ngSubmit)="update()">
+    <div class="row" style="background-color: wheat;">
+
+        <div class="col-md-4 form-group">
+            <label for="No">Employee Id</label>
+            <input type="text" readonly class="form-control" id="No" name="No" placeholder="Enter No"
+                [(ngModel)]="emp.empId">
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label for="Name">Name</label>
+            <input type="text" readonly class="form-control" id="Name" name="Name" placeholder="Enter Name"
+                [(ngModel)]="emp.name">
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label for="Age">Role</label>
+            <select class="form-control" id="role" name="role" [(ngModel)]="emp.role">
+                <option value="VALIDATOR">VALIDATOR</option>
+                <option value="ADMIN">ADMIN</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-4 form-group">
+            <label for="No">Gender</label>
+            <input type="text" readonly class="form-control" id="gender" name="gender" placeholder="Not set"
+                [(ngModel)]="emp.gender">
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label for="Name">Phone</label>
+            <input type="text" class="form-control" id="phone" name="phone" placeholder="Not set"
+                [(ngModel)]="emp.phone">
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label for="Age">Age</label>
+            <input type="text" class="form-control" id="age" name="age" placeholder="Enter Age" [(ngModel)]="emp.age">
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-4 form-group">
+            <label for="No">Salary</label>
+            <input type="text" class="form-control" id="salary" name="salary" placeholder="Not set"
+                [(ngModel)]="emp.salary">
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label for="Name">Salary Status</label>
+            <select class="form-control" id="salaryStatus" name="salaryStatus" [(ngModel)]="emp.salaryStatus">
+                <option value="PAID">PAID</option>
+                <option value="UNPAID">UNPAID</option>
+            </select>
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label for="Age">Email</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="Not set"
+                [(ngModel)]="emp.email">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <label for="Age">Alloted Area</label>
+            <input type="text" class="form-control" id="allotedArea" name="Age" placeholder="allotedArea Not set"
+                [(ngModel)]="emp.allocatedArea">
+        </div>
+        <div class="col-md-4 form-group">
+            <label for="No">Local Address</label>
+            <input type="text" readonly class="form-control" id="localadd" name="localadd" placeholder="Not set"
+                [(ngModel)]="emp.localadd">
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label for="Name">Permanent Address</label>
+            <input type="text" class="form-control" id="permadd" name="permadd" placeholder="Not set"
+                [(ngModel)]="emp.permadd">
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3" style="align-content: center;">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+        <div class="col-md-3">
+
+            <button type="button" class="btn btn-danger" (click)="CancelUpdate()">Cancel</button>
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</form>

@@ -1,0 +1,129 @@
+<!--NAV BAR-->
+<div class="row bg-secondary" style="height: 55px; position: sticky; top: 0 ;z-index:9999;">
+
+    <div class="col-2 text-light make-left beautify">
+        R00M!s
+    </div>
+    <div class="col-2 text-light make-left beautify"></div>
+
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/userhome">Home</a>
+    </div>
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/postroom">Post Room</a>
+    </div>
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/myrooms">My Rooms </a>
+    </div>
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/logout">Log out </a>
+    </div>
+
+
+</div>
+
+
+<!--OUTER CONTAINER-->
+<div class="row container no-gutters div-sticky" style="position: sticky;">
+
+    <!--LEFT SIDE MAIN PAGE CONTENT-->
+    <div class="col-md-6 row-md-5" style="position: relative;">
+
+        <ng-container *ngFor="let item of rooms; let itemIndex = index;">
+         <div *ngIf="item==null">Sorry You did not post any room yet</div>
+            <!--FIRST IMAGE-->
+            <div class="row">
+                <div class="container-fluid make-center">
+                    <div class="card mt-2" style="background-color: cadetblue">
+
+                        <div class="card-header h6">
+                            <div class="row">
+                                <div class="col-4">
+                                    RoomId :  {{item.roomId}}
+                                  </div>
+                                  <div class="col-4">
+                                    <button class="btn-daanger rounded" (click)="remove(item)">Remove post</button>
+                                  </div>
+                                  <div class="col-4">
+                                    Post Date :  {{item.postDate}}
+                                  </div>
+                            </div>
+                        </div>
+                        <!--CARD BODY SECTION IS DYNAMIC-->
+                        <div (click)="dochange(item)" class="card-body">
+
+                            <div class="row" style="cursor: pointer;">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <img class="card-img" src="data:image/gif;base64,{{item?.image}}" alt="Card image">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </ng-container>
+
+
+    </div>
+
+    <div class="col-md-6 row-md-5 right-menu">
+
+        <ng-container>
+            <div class="row">
+                <div class="container-fluid make-center">
+                    <div class="card mt-2" style="width: 100%;height: 450px">
+
+                        <!--Card header -->
+                        <div class="card-header h6">
+                            <div class="row">
+                                Requested peoples &nbsp;(click on room to see requests)
+                            </div>
+                        </div>
+                        <!--CARD BODY SECTION IS DYNAMIC-->
+                        <div class="card-body">
+
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <div class="table table-responsive  table-hover ">
+                                        <table>
+                                            <thead style="position: sticky;">
+                                                <tr style="text-align: center;">
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Gender</th>
+                                                    <th>Phone</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let user of room" style="text-align: center;">
+                                                    <td>{{user.name}}</td>
+                                                    <td>{{user.email}}</td>
+                                                    <td>{{user.gender}}</td>
+                                                    <td>{{user.phoneNo}}</td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </ng-container>
+
+    </div>
+</div>

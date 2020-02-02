@@ -1,0 +1,128 @@
+<!--NAV BAR-->
+<div class="row bg-secondary" style="height: 55px; position: sticky; top: 0 ;z-index:9999;">
+
+    <div class="col-2 text-light make-left beautify">
+        R00M!s
+    </div>
+    <div class="col-2 text-light make-left beautify"></div>
+
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/userhome">Home</a>
+    </div>
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/postroom">Post Room</a>
+    </div>
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/myrooms">My Rooms </a>
+    </div>
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/logout">Log out </a>
+    </div>
+
+
+</div>
+<!--header for Post room form-->
+<div style="background-color: darkmagenta;z-index:9999; " class="rounded">
+    <div class="col-12 text-light make-center beautify">
+        <h3>Post Room Form</h3>
+    </div>
+</div>
+<form #myForm="ngForm" (ngSubmit)="postRoom()">
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <label for="Name">Owner Name</label>
+            <input type="text" readonly class="form-control" id="Name" name="Name" placeholder="Enter Name"
+                [(ngModel)]="owner.name">
+        </div>
+        <div class="col-md-4 form-group">
+            <label for="Age">Email</label>
+            <input type="text" readonly class="form-control" id="email" name="email" placeholder="Enter Email"
+                [(ngModel)]="owner.email">
+        </div>
+        <div class="col-md-4 form-group">
+            <label for="Name">Phone</label>
+            <input type="text" readonly class="form-control" id="phoneNo" name="phoneNO"
+                placeholder="Enter Phone details" [(ngModel)]="owner.phoneNo">
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-2 form-group">
+            <label for="No">Property Type</label>
+            <select class="form-control" id="type" name="type" [(ngModel)]="room.type">
+                <option value="SINGLEROOM">SINGLEROOM</option>
+                <option value="ONERK">ONERK</option>
+                <option value="ONEBHK">ONEBHK</option>
+                <option value="TWOBHK">TWOBHK</option>
+                <option value="THREEBHK">THREEBHK</option>
+                <option value="BUNGALOW">BUNGALOW</option>
+            </select>
+        </div>
+        <div class="col-md-2 form-group">
+            <label for="Age">Total Rent</label>
+            <input type="text" class="form-control" id="rent" name="rent" placeholder="Enter Rent"
+                [(ngModel)]="room.rent">
+        </div>
+
+        <div class="col-md-8 form-group">
+            <label for="Age">Brief Description</label>
+            <input type="text" class="form-control" id="description" name="description" placeholder="Enter description"
+                [(ngModel)]="room.description">
+        </div>
+
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-4 form-group">
+            <label for="No">How Many Members can share</label>
+            <input type="text" class="form-control" id="sharingCount" name="sharingCount"
+                placeholder="Enter Sharing count" [(ngModel)]="room.sharingCount">
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label for="Age">Total Room Count</label>
+            <input type="text" class="form-control" id="roomCount" name="roomCount" placeholder="Enter total room count"
+                [(ngModel)]="room.roomCount">
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label>Landmark</label>
+            <input type="text" class="form-control" placeholder="enter landmark" id="landmark" name=" enter landmark"
+                [(ngModel)]="room.landmark">
+        </div>
+
+
+    </div>
+    <label for="localadd">Room Address</label>
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <label>City</label>
+            <input type="text" class="form-control" placeholder="Enter city" id="city" name="city"
+                [(ngModel)]="add.city">
+        </div>
+        <div class="col-md-4 form-group">
+            <label>Street</label>
+            <input type="text" class="form-control" placeholder="Enter street" id="street" name="street"
+                [(ngModel)]="add.street">
+        </div>
+        <div class="col-md-4 form-group">
+            <label>Pincode</label>
+            <input type="text" class="form-control" placeholder="Enter Pincode" id="zip" name="zip"
+                [(ngModel)]="add.zip">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3" style="align-content: center;">
+            <button type="submit" class="btn btn-primary">Continue</button>
+        </div>
+        <div class="col-md-3">
+
+            <button type="button" class="btn btn-danger" (click)="CancelPost()">Back to home</button>
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</form>

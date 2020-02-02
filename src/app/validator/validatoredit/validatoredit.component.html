@@ -1,0 +1,144 @@
+<!--NAV BAR-->
+<div class="row bg-warning rounded"
+    style="background-color: #07ffba!important;height: 40px; position: sticky;z-index:9999;">
+
+    <div class="col-12 text-light make-center beautify">
+        <a style="color: blue;" routerLink="/home">Update Room Status</a>
+    </div>
+</div>
+<form #myForm="ngForm" (ngSubmit)="postRoom()">
+    <div class="row">
+
+        <div class="col-md-3 form-group">
+            <label for="Name">Room Id</label>
+            <input type="text" readonly class="form-control" id="RoomId" name="RoomId" placeholder="Room Id"
+                [ngModel]="room.roomId">
+        </div>
+        <div class="col-md-3 form-group">
+            <label for="Name">Owner Name</label>
+            <input type="text" readonly class="form-control" id="Name" name="Name" placeholder="Enter Name"
+                [(ngModel)]="owner.name">
+        </div>
+        <div class="col-md-3 form-group">
+            <label for="Age">Email</label>
+            <input type="text" readonly class="form-control" id="email" name="email" placeholder="Enter Email"
+                [(ngModel)]="owner.email">
+        </div>
+        <div class="col-md-3 form-group">
+            <label for="Name">Phone</label>
+            <input type="text" readonly class="form-control" id="phoneNo" name="phoneNO"
+                placeholder="Enter Phone details" [(ngModel)]="owner.phoneNo">
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-3 form-group">
+            <label for="No">Property Type</label>
+            <select class="form-control" id="type" name="type" [(ngModel)]="room.type">
+                <option value="MALE">SINGLEROOM</option>
+                <option value="FEMALE">ONERK</option>
+                <option value="ONEBHK">ONEBHK</option>
+                <option value="TWOBHK">TWOBHK</option>
+                <option value="THREEBHK">THREEBHK</option>
+                <option value="BUNGALOW">BUNGALOW</option>
+            </select>
+        </div>
+
+
+        <div class="col-md-3 form-group">
+            <label for="Age">Validity Status</label>
+            <select class="form-control" id="validateStatus" name="validateStatus" [(ngModel)]="room.validateStatus">
+                <option value="NONE">NONE</option>
+                <option value="BAD">BAD</option>
+                <option value="GOOD">GOOD</option>
+                <option value="PERFECT">PERFECT</option>
+                <option value="AVRAGE">AVRAGE</option>
+                <option value="VALID">VALID</option>
+                <option value="INVALID">INVALID</option>
+            </select>
+        </div>
+
+        <div class="col-md-2 form-group">
+            <label for="Age">Tootal Room Count</label>
+            <input type="number" class="form-control" id="roomCount" name="roomCount"
+                placeholder="Enter total room count" [(ngModel)]="room.roomCount">
+        </div>
+
+        <div class="col-md-2 form-group">
+            <label for="Age">visiblityStatus</label>
+            <input readonly type="text" class="form-control" id="visiblityStatus" name="visiblityStatus"
+                placeholder="Enter visiblityStatus" [(ngModel)]="room.visiblityStatus">
+        </div>
+
+        <div class="col-md-2 form-group">
+            <label for="Age">Total Rent</label>
+            <input readonly type="text" class="form-control" id="rent" name="rent" placeholder="Enter Rent"
+                [(ngModel)]="room.rent">
+        </div>
+
+
+
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-4 form-group">
+            <label for="No">How Many Members can share</label>
+            <input type="text" readonly class="form-control" id="sharingCount" name="sharingCount"
+                placeholder="Enter Sharing count" [(ngModel)]="room.sharingCount">
+        </div>
+
+
+        <div class="col-md-8 form-group" style="overflow-wrap: break-word;">
+            <label for="Age">Brief Description</label>
+            <input readonly type="text" class="form-control" id="description" name="description"
+                placeholder="Enter description" [(ngModel)]="room.description">
+        </div>
+
+
+
+    </div>
+    <label for="localadd">Room Address</label>
+    <div class="row">
+        <div class="col-md-3 form-group">
+            <label>City</label>
+            <input type="text" readonly class="form-control" placeholder="Enter city" id="city" name="city"
+                [(ngModel)]="room.location.city">
+        </div>
+        <div class="col-md-3 form-group">
+            <label>Street</label>
+            <input type="text" readonly class="form-control" placeholder="Enter street" id="street" name="street"
+                [(ngModel)]="room.location.street">
+        </div>
+        <div class="col-md-3 form-group">
+            <label>Pincode</label>
+            <input type="text" readonly class="form-control" placeholder="Enter Pincode" id="zip" name="zip"
+                [(ngModel)]="room.location.zip">
+        </div>
+
+        <div class="col-md-3 form-group">
+            <label>Landmark</label>
+            <input type="text" readonly class="form-control" placeholder="enter landmark" id="landmark"
+                name=" enter landmark" [(ngModel)]="room.landmark">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary">Update Room Info</button>
+        </div>
+        <div class="col-md-3">
+
+            <button type="button" class="btn btn-secondary" (click)="CancelPost()">Back To List</button>
+
+        </div>
+        <div class="col-md-2">
+
+            <button type="button" class="btn btn-danger" (click)="CancelPost()">Delete Room</button>
+
+        </div>
+        <div class="col-md-2"></div>
+
+    </div>
+</form>

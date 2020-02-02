@@ -1,0 +1,29 @@
+<!--NAV BAR-->
+<div class="row bg-secondary" style="height: 55px; position: sticky; top: 0 ;z-index:9999;">
+
+    <div class="col-2 text-light make-left beautify">
+        R00M!s
+    </div>
+    <div class="col-2 text-light make-left beautify"></div>
+
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/userhome">Home</a>
+    </div>
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/postroom">Post Room</a>
+    </div>
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/myrooms">My Rooms </a>
+    </div>
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/logout">Log out </a>
+    </div>
+
+
+</div>
+
+<h3>Upload Image for room here</h3>
+
+<input type="file" (change)=onfileselected($event)>
+
+<button (click)="upload()"> upload file</button>

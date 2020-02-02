@@ -1,0 +1,188 @@
+<!--NAV BAR-->
+<div class="row bg-secondary" style="height: 55px; position: sticky; top: 0 ;z-index:9999;">
+
+    <div class="col-2 text-light make-left beautify">
+        R00M!s
+    </div>
+    <div class="col-2 text-light make-left beautify"></div>
+
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/userhome">Home</a>
+    </div>
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/postroom">Post Room</a>
+    </div>
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/myrooms">My Rooms </a>
+    </div>
+    <div class="col-2 text-light make-center beautify">
+        <a style="color: aqua;" routerLink="/logout">Log out </a>
+    </div>
+
+
+</div>
+
+
+<!--OUTER CONTAINER-->
+<div class="row container no-gutters div-sticky" style="position: sticky;">
+
+    <!--LEFT SIDE MAIN PAGE CONTENT-->
+    <div class="col-md-9 row-md-5" style="position: relative;">
+
+        <ng-container *ngFor="let item of rooms; let itemIndex = index;">
+            <!--FIRST IMAGE-->
+            <div class="row">
+                <div class="container-fluid make-center">
+                    <div class="card mt-2" style="background-color: cadetblue">
+
+                        <div class="card-header h6">
+                            <div class="row">
+                                <div class="col-md-4 rounded "
+                                    style="background-color: darkolivegreen;text-align: center; color: aqua;">Validators
+                                    Review: {{item.validateStatus}}</div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4 span12 rounded"
+                                    style="background-color: crimson ;color: wheat;text-align: center;">
+                                    Rent:{{item.rent}}</div>
+                            </div>
+                        </div>
+                        <!--CARD BODY SECTION IS DYNAMIC-->
+                        <div (click)="viewsCount(item)" class="card-body pb-0 pt-0 pl-0 pr-0">
+
+                            <div class="row" style="cursor: pointer;">
+                                <div class="col-md-8">
+                                    <div class="card">
+                                        <img class="card-img" src="data:image/gif;base64,{{item?.image}}" alt="Card image"
+                                            style="width:100%;">
+                                        <button class="mybtn-right">
+                                            < &nbsp; </button> <button class="mybtn-left">
+                                                >
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" style="font-size: medium;">
+                                    <label>Details by Owner :</label>
+                                    <div style="background-color: darkmagenta;text-align: center;color: beige; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"
+                                        class="rounded">
+                                        <p>{{item.description}}</p>
+                                    </div><br>
+                                    <label>Address details :</label>
+                                    <div style="background-color: darkmagenta;text-align: center;color: beige; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"
+                                        class="rounded">
+                                        City : {{item.location.city}}<br>
+                                        Street : {{item.location.street}}<br>
+                                        Pincode : {{item.location.zip}}<br>
+                                    </div><br>
+                                    <label> Owner Details :</label>
+                                    <div style="background-color: darkmagenta;color: beige; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;text-align: center;"
+                                        class="rounded">
+                                        Name : {{item.owner.name}}<br>
+                                        Email : {{item.owner.email}}<br>
+                                        Phone no : {{item.owner.phoneNo}}<br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!--CARD FOOTER SECTION-->
+                        <div class="card-footer d-flex justify-content-between pb-1">
+                            <div *ngIf="requested">
+                                <a (click)="requestRoom(item)" class="text-light badge badge-pill badge-primary"
+                                    style="cursor: pointer;">Request Room</a>
+                            </div>
+                            <div *ngIf="!requested">
+                                <a (click)="requestRoom(item)" class="text-light badge badge-pill badge-primary"
+                                    style="cursor: pointer;">Request Room</a>
+                            </div>
+                            <span class="text-muted badge-light rounded p-1" style="font-size: small;">
+                                Views : {{item.views}}
+                            </span>
+                            <div>
+
+                                <a (click)="reportSpam(item)" class="text-light badge badge-pill badge-danger ml-1"
+                                    style="cursor: pointer;">Report Spam</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </ng-container>
+
+    </div>
+
+    <!--RIGHT SIDE FILTERS-->
+    <div class="col-md-3 row-md-5 right-menu">
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label for="No">Property Type</label><br>
+                <select class="form-control" id="type" name="type" [(ngModel)]="filter.type">
+                    <option value="MALE">SINGLEROOM</option>
+                    <option value="FEMALE">ONERK</option>
+                    <option value="ONEBHK">ONEBHK</option>
+                    <option value="TWOBHK">TWOBHK</option>
+                    <option value="THREEBHK">THREEBHK</option>
+                    <option value="BUNGALOW">BUNGALOW</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Min Rent</label>
+                    <input type="text" class="form-control" id="minBudget" name="minBudget" placeholder="Enter value"
+                        [(ngModel)]="filter.minBudget">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Max Rent</label>
+                    <input type="text" class="form-control" id="maxBudget" name="maxBudget" placeholder="Enter value"
+                        [(ngModel)]="filter.maxBudget">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Min Rooms</label>
+                    <input type="text" class="form-control" id="minRoomCount" name="minRoomCount"
+                        placeholder="Enter value" [(ngModel)]="filter.minRoomCount">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Age">Max Rooms</label>
+                    <input type="text" class="form-control" id="maxRoomCount" name="maxRoomCount"
+                        placeholder="Enter value" [(ngModel)]="filter.maxRoomCount">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Age">Min Sharing Count</label>
+                    <input type="text" class="form-control" id="minSharingCount" name="minSharingCount"
+                        placeholder="Enter value" [(ngModel)]="filter.minSharingCount">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Age">Max Sharing Count</label>
+                    <input type="text" class="form-control" id="maxSharingCount" name="maxSharingCount"
+                        placeholder="Enter value" [(ngModel)]="filter.maxSharingCount">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-12 form-group">
+                    <button (click)="dofilter()" class="btn btn-success rounded ">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

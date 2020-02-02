@@ -1,0 +1,49 @@
+
+<!--NAV BAR-->
+<div style="background-color: darkmagenta; height: 50px;" class="row">
+  <div class="col-4 text-light make-center beautify">
+    <h4>Welcome admin</h4>
+  </div>
+  <div class="col-4 text-light make-center beautify">
+    <a style="color: aqua;" routerLink="/adminregister">Regiseter New Employee</a>
+  </div>
+  <div class="col-4 text-light make-center beautify">
+    <a style="color: aqua;" routerLink="/logout">Log Out</a>
+  </div>
+</div>
+<div class="table table-responsive  table-hover ">
+  <table>
+    <thead style="position: sticky;">
+      <tr style="text-align: center;">
+        <th>EmpId</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Phone</th>
+        <th>Alloted Area</th>
+        <th>Salary</th>
+        <th>Payment Status</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of emps" style="text-align: center;">
+        <td>{{emp.empId}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.role}}</td>
+        <td>{{emp.email}}</td>
+        <td>{{emp.gender}}</td>
+        <td>{{emp.phone}}</td>
+        <td>{{emp.allocatedArea}} </td>
+        <td>{{emp.salary}}</td>
+        <td >{{emp.salaryStatus}}</td>
+
+        <td><a style="text-align: center;color: rgb(207, 125, 18);" routerLink="/adminedit/{{emp.empId}}">Edit</a></td>
+        <td><button class="btn btn-danger" (click)="doDelete(emp.empId)">Delete</button></td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>

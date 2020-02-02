@@ -1,0 +1,114 @@
+<!--NAV BAR-->
+<div style="background-color: darkmagenta; height:50px;" class="row" >
+        <div class="col-12 text-light make-center beautify" style="position: fixed;">
+          <h4>Register new Employee</h4>
+        </div>
+</div>
+<form #myForm="ngForm" (ngSubmit)="registerEmp()">
+    <div class="row">
+
+        <div class="col-md-4 form-group">
+            <label for="No">Employee Id</label>
+            <input type="text" readonly class="form-control" id="No" name="No"
+                placeholder="Id will be generated automatically" [(ngModel)]="emp.empId">
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label for="Name">Name</label>
+            <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter Name"
+                [(ngModel)]="emp.name">
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label for="Age">Role</label>
+            <select class="form-control" id="role" name="role" [(ngModel)]="emp.role">
+                <option value="VALIDATOR">VALIDATOR</option>
+                <option value="ADMIN">ADMIN</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-4 form-group">
+            <label for="No">Gender</label>
+            <select class="form-control" id="gender" name="gender" [(ngModel)]="emp.gender">
+                <option value="MALE">MALE</option>
+                <option value="FEMALE">FEMALE</option>
+                <option value="OTHER">OTHER</option>
+            </select>
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label for="Name">Phone</label>
+            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone details"
+                [(ngModel)]="emp.phone">
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label for="Age">Age</label>
+            <input type="text" class="form-control" id="Age" name="Age" placeholder="Enter Age" [(ngModel)]="emp.age">
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-4 form-group">
+            <label for="No">Salary</label>
+            <input type="text" class="form-control" id="salary" name="salary" placeholder="Enter Salary"
+                [(ngModel)]="emp.salary">
+        </div>
+
+
+        <div class="col-md-4 form-group">
+            <label for="Age">Email</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email"
+                [(ngModel)]="emp.email">
+        </div>
+        <div class="col-md-4 form-group">
+            <label for="Age">Alloted Area</label>
+            <input type="text" class="form-control" id="allotedArea" name="Age" placeholder="Allot area"
+                [(ngModel)]="emp.allocatedArea">
+        </div>
+    </div>
+    <label for="localadd">Local Address</label>
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <label>City</label>
+            <input type="text" class="form-control" placeholder="Enter City" id="city" name="city" [(ngModel)]="localadd.city">
+        </div>
+        <div class="col-md-4 form-group">
+            <label>Street</label>
+            <input type="text" class="form-control" placeholder="Enter street"  id="street" name="street"  [(ngModel)]="localadd.street">
+        </div>
+        <div class="col-md-4 form-group">
+            <label>Pincode</label>
+            <input type="text" class="form-control" placeholder="Enter Pincode"  id="zip" name="zip"  [(ngModel)]="localadd.zip">
+        </div>
+    </div>
+    <label for="localadd">Permananat Address</label>
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <label>City</label>
+            <input type="text" class="form-control" placeholder="Enter City" id="city" name="city" [(ngModel)]="permadd.city">
+        </div>
+        <div class="col-md-4 form-group">
+            <label>Street</label>
+            <input type="text" class="form-control" placeholder="Enter Street"  id="street" name="street" [(ngModel)]="permadd.street">
+        </div>
+        <div class="col-md-4 form-group">
+            <label>Pincode</label>
+            <input type="text" class="form-control" placeholder="Enter Pincode"   id="zip" name="zip"  [(ngModel)]="permadd.zip">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3" style="align-content: center;">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+        <div class="col-md-3">
+
+            <button type="button" class="btn btn-danger" (click)="CancelUpdate()">Cancel</button>
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</form>

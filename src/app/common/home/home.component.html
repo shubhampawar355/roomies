@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <!--NAV BAR-->
+    <div class="row bg-secondary" style="height: 55px; position: sticky; top: 0 ;z-index:9999;" *ngIf='flag == "true"'>
+        <div class="col-2 text-light make-left beautify">
+            {{title}}
+        </div>
+        <div class=" col-2 navbar-header" style="text-align: center">
+            <h4>Hello ,{{user.name}}</h4>
+        </div>
+
+        <!--Admin nav bar-->
+
+        <div class="col-2 text-light make-center beautify">
+            <a style="color: blue;" routerLink="register/employee">Regiseter New Employee</a>
+        </div>
+
+        <!-- validator bar-->
+
+
+        <div class="col-12 text-light make-center beautify">
+            <a style="color: blue;" routerLink="/postroom/3">Post Room </a>
+        </div>
+
+        <!-- user bar-->
+
+        <div class="col-4 text-light make-center beautify">
+            <a style="color: blue;" routerLink="/home">Home</a>
+        </div>
+
+    </div>
+</div>
+
+
+
+<nav class="navbar navbar-default navbar-static-top" *ngIf='flag == "true"'>
+    <div class="container">
+        <div class="navbar-header" style="text-align: center">
+            <h4>Hello ,{{user.role}}</h4>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" [ngSwitch]="user.role">
+            <ul class="nav navbar-nav">
+
+                <li><a routerLink="/home/editprofile">Edit Profile</a></li>
+                <li><a routerLink="/home/changePassword" routerLinkActive="active">Change Password</a></li>
+
+                <ul class="nav navbar-nav" *ngSwitchCase="'PASSENGER'">
+                    <li><a routerLink="/home/searchflight">Search Flight</a></li>
+                    <li><a routerLink="/home/register">Register</a></li>
+                    <li><a routerLink="/home/bookingdetails">Booking Details</a></li>
+                    <li><a routerLink="/home/paymenthistory">Payment History</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav" *ngSwitchCase="'ADMIN'">
+                    <li><a routerLink="/home/addflight">Add New Flight</a></li>
+                    <li><a routerLink="/home/flightdetails">Flight Details</a></li>
+                    <li><a routerLink="/home/transaction">View Transaction</a></li>
+                    <li><a routerLink="/home/addnotice">Add Notice</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a routerLink="/logout">Logout</a></li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
+<div>Welcome</div>

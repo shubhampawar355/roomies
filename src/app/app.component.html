@@ -1,0 +1,27 @@
+<div class="container-fluid">
+
+  <!--NAV BAR-->
+  <div class="row bg-secondary" style="height: 55px; position: sticky; top: 0 ;z-index:9999;" *ngIf="!service.IsLoggedIn()">
+    <div class="col-3 text-light make-left beautify">
+      {{title}}
+    </div>
+
+    <div class="col-2 text-light make-center beautify">
+      <a style="color: aqua;" routerLink="/home">Home</a>
+    </div>
+    <div class="col-2 text-light make-center beautify">
+      <a style="color: aqua;" routerLink="/aboutus">Aboutus</a>
+    </div>
+
+    <div class="col-2 text-light make-center beautify">
+      <a style="color: aqua;" routerLink="/login">Log in</a>
+    </div>
+    <div class="col-3 text-light make-center beautify">
+      <a style="color: aqua;" routerLink="/registeruser">Register new</a>
+    </div>
+  
+  </div>
+  
+  <router-outlet></router-outlet>
+
+</div>

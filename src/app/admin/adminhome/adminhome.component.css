@@ -1,0 +1,13 @@
+
+.make-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.beautify {
+    font-family: monospace;
+    FONT-STYLE: italic;
+    letter-spacing: 1.5px;
+    font-size: 1.5rem;
+}
