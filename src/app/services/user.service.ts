@@ -71,7 +71,7 @@ addImage(fd,rid){
 }
 
 removeroom(room,uid){
-  return this.http.post(this.baseUrl+"/deleteroom/"+uid,room);
+  return this.http.post(this.baseUrl+"deleteroom/"+uid,room);
 }
 
 }
